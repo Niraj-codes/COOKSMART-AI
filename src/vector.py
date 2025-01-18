@@ -24,4 +24,4 @@ if __name__ == "__main__":
     if not os.path.exists('models'):
         os.makedirs('models')
 
-    vectorize_ingredients('C:/Users/Niraj Prajapati/Desktop/ML PROJECT/data/processed/processed_dataset.csv', 'C:/Users/Niraj Prajapati/Desktop/ML PROJECT/models/tfidf_vectorizer.pkl')
+    vectorize_ingredients(r'data\processed\processed_dataset.csv', r'models\tfidf_vectorizer.pkl')

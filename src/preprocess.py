@@ -13,4 +13,4 @@ def preprocess_data(input_path, output_path):
     df.to_csv(output_path, index=False)
 
 if __name__ == "__main__":
-    preprocess_data('C:/Users/Niraj Prajapati/Desktop/ML PROJECT/data/raw/cuisines.csv', 'C:/Users/Niraj Prajapati/Desktop/ML PROJECT/data/processed/processed_dataset.csv')
+    preprocess_data(r'data\raw\cuisines.csv', r'data\processed\processed_dataset.csv')

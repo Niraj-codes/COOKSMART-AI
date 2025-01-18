@@ -8,7 +8,7 @@ def train_model(input_file):
     df = pd.read_csv(input_file)
 
     # Load vectorized ingredients
-    with open('C:/Users/Niraj Prajapati/Desktop/ML PROJECT/models/tfidf_vectorizer.pkl', 'rb') as f:
+    with open(r'models\tfidf_vectorizer.pkl', 'rb') as f:
         vectorizer = pickle.load(f)
 
     X = vectorizer.transform(df['ingredients'])
@@ -18,8 +18,8 @@ def train_model(input_file):
     knn.fit(X)
 
     # Save the trained model
-    with open('C:/Users/Niraj Prajapati/Desktop/ML PROJECT/models/knn_model.pkl', 'wb') as f:
+    with open(r'models\knn_model.pkl', 'wb') as f:
         pickle.dump(knn, f)
 
 if __name__ == "__main__":
-    train_model('C:/Users/Niraj Prajapati/Desktop/ML PROJECT/data/processed/processed_dataset.csv')
+    train_model(r'data\processed\processed_dataset.csv')

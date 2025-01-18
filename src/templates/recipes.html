@@ -1,97 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipe</title>
-    <link rel="stylesheet" href="../static/styles.css">
-    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> -->
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipe Recommendations</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link rel="stylesheet" href="../static/styles.css">
 </head>
 <body>
-    <header>
-        <div class="logos">
-          <img src="./images/images-removebg-preview.png" alt="">
-          <h1>Cooksmart AI</h1>
-        </div>
-        <nav>
-          <ul>
-            <li><a href="#">Discover</a></li>
-            <li><a href="#">Ingredients</a></li>
-            <li><a href="#">Recipes</a></li>
-          </ul>
-        </nav>
-      </header>
-      <!-- <section class="recipe">
-        <h2>Recipes Based on Your Ingredients</h2>
-        {% if recipes %}
+  <header>
+    <div class="logos">
+      <img src="{{ url_for('static', filename='images/images-removebg-preview.png') }}" alt="Cooksmart-AI">
+      <h1>Cooksmart AI</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">Discover</a></li>
+        <li><a href="#">Ingredients</a></li>
+        <li><a href="#">Recipes</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="recipe">
+      <h2>Recipes Based on Your Ingredients</h2>
+      {% if recipes %}
+        <div class="recipe-list">
           {% for recipe in recipes %}
-            <div class="cont">
-              <div class="recipem">
-                <h3>{{ recipe.name }}</h3>
-                <p>{{ recipe.description }}</p>
-                <h4>Ingredients</h4>
+            <div class="recipe-card">
+              <div class="recipeimg">
+                <img src="{{ recipe.image_url }}" alt="{{ recipe.name }}">
+              </div>
+              <div class="recipe-info">
+                <h3 class="recipe-title">{{ recipe.name }}</h3>
+                <p><strong>Ingredients:</strong></p>
                 <ul>
-                  {% for ingredient in recipe.ingredients %}
+                  {% for ingredient in recipe.ingredients.split(',') %}
                     <li>{{ ingredient }}</li>
                   {% endfor %}
                 </ul>
-                <h4>Steps</h4>
-                <ol>
-                  {% for step in recipe.steps %}
-                    <li>{{ step }}</li>
-                  {% endfor %}
-                </ol>
-              </div>
-              <div class="recipeimg">
-                <img src="{{ recipe.image_url }}" alt="Recipe Image">
+                <p><strong>Instructions:</strong></p>
+                <p class="recipe-instructions">{{ recipe.instructions }}</p>
               </div>
             </div>
           {% endfor %}
-        {% else %}
-          <p>No recipes found for the given ingredients.</p>
-        {% endif %}
-      </section> -->
-      <div class="container">
-        <form method="POST">
-            <input type="text" id="ingredients" name="ingredients" placeholder="Enter ingredients (e.g., tomato, garlic, onion)" required>
-            <button type="submit">Get Recipes</button>
-        </form>
-
-        {% if recipes %}
-            <h2>Recommended Recipes:</h2>
-            <div class="recipe-list">
-                {% for recipe in recipes %}
-                    <div class="recipe-card">
-                        <img src="{{ recipe.image_url }}" alt="{{ recipe.name }} Image">
-                        <div class="recipe-info">
-                            <h2>{{ recipe.name }}</h2>
-                            <strong>Ingredients:</strong>
-                            <ul>
-                                {% for ingredient in recipe.ingredients.split(',') %}
-                                    <li>{{ ingredient }}</li>
-                                {% endfor %}
-                            </ul>
-                            <div class="instructions">
-                                <h3>Instructions:</h3>
-                                <p>{{ recipe.instructions }}</p>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-        {% endif %}
-    </div>
-      <footer id="footer">
-        <div class="footer-content">
-            <p>&copy; 2025 Cooksmart AI. All rights reserved.</p>
-            <ul class="footer-links">
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#privacy">Privacy Policy</a></li>
-                <li><a href="#terms">Terms of Service</a></li>
-                <li><a href="#contact">Contact Us</a></li>
-            </ul>
         </div>
-    </footer>
+      {% else %}
+        <p>No recipes found for the given ingredients. Try again with different ingredients!</p>
+      {% endif %}
+    </section>
+  </main>
+
+  <footer id="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 Cooksmart AI. All rights reserved.</p>
+      <ul class="footer-links">
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#privacy">Privacy Policy</a></li>
+        <li><a href="#terms">Terms of Service</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </div>
+  </footer>
 </body>
 </html>

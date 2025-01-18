@@ -4,9 +4,9 @@ import pandas as pd
 
 def recommend_recipes(ingredients_input):
     # Load vectorizer and model
-    with open('C:/Users/Niraj Prajapati/Desktop/ML PROJECT/models/tfidf_vectorizer.pkl', 'rb') as f:
+    with open(r'models\tfidf_vectorizer.pkl', 'rb') as f:
         vectorizer = pickle.load(f)
-    with open('C:/Users/Niraj Prajapati/Desktop/ML PROJECT/models/knn_model.pkl', 'rb') as f:
+    with open(r'models\knn_model.pkl', 'rb') as f:
         knn = pickle.load(f)
 
     # Vectorize user input
@@ -16,7 +16,7 @@ def recommend_recipes(ingredients_input):
     distances, indices = knn.kneighbors(ingredients_vector)
 
     # Load the dataset
-    df = pd.read_csv('C:/Users/Niraj Prajapati/Desktop/ML PROJECT/data/processed/processed_dataset.csv')
+    df = pd.read_csv(r'data\processed\processed_dataset.csv')
 
     # Retrieve the top 5 recipes
     recommended_recipes = df.iloc[indices[0]][['name', 'image_url','ingredients','instructions']].to_dict(orient='records')
