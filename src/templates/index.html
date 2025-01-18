@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cooksmart AI</title>
+  <link rel="stylesheet" href="../static/styles.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<body>
+  <header>
+    <div class="logos">
+      <img src="../static/images/images-removebg-preview.png" alt="Cooksmart-AI">
+      <h1>Cooksmart AI</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">Discover</a></li>
+        <li><a href="#">Ingredients</a></li>
+        <li><a href="#">Recipes</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="ingredient-input">
+      <h1 class="headin">Tell us what you have</h1>
+      <p>Simply enter the ingredients you have on hand, and Cooksmart AI will instantly generate a unique, delicious recipe tailored to you.</p>
+    
+      <form action="/get-recipes" method="post">
+        <div class="input">
+          <input type="text" name="ingredient" id="ingredient" placeholder="Enter the ingredients (e.g., Tomato, Shrimp, Onion, Cheese)" required />
+          <button type="submit">Get Started</button>
+        </div>
+      </form>
+    </section>
+    
+    
+  <section id="Featured">
+    <h1>Featured Recipes</h1>
+    <div class="recipes">
+      <div class="item"  style="background-image: url('{{ item1_image_url }}');"><span class="hover-text">{{ recipe1_name }}</span></div>
+      <div class="item"  style="background-image: url('{{ item2_image_url }}');"><span class="hover-text">{{ recipe2_name }}</span></div>
+      <div class="item" style="background-image: url('{{ item3_image_url }}');"> <span class="hover-text">{{ recipe3_name }}</span></div>
+      <div class="item" style="background-image: url('{{ item4_image_url }}');"><span class="hover-text">{{ recipe4_name }}</span></div>
+    </div>
+  </section>
+
+  <section id="info">
+    <h1 id="infoh1">AI-ML Powered</h1>
+    <p id="infop" class="response">Cooksmart AI is a groundbreaking AI-powered recipe generator. Simply input the ingredients you have and our advanced algorithm will instantly create a unique recipe tailored just for you. Join us in revolutionizing the way we plan and prepare meals.</p>
+    <hr>
+    <div class="cards">
+      <img class="response" src="../static/images/feature-fridge.webp" alt="">
+      <div class="desc" id="response">
+        <h2>Reduce Waste - Save Money</h2>
+      <p>The average family throws away ₹12,000 annually in wasted food. Cooksmart AI helps you save money by creating intelligent and delicious ways to use up leftover ingredients. Input the ingredients you have on hand, and our AI will suggest unique recipes. Less waste, more savings.</p>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="desc" id="response">
+        <h2>Generate and Refine Recipes</h2>
+      <p>With Cooksmart AI, an infinite world of culinary possibilities is at your fingertips. Each time you search, our ML-driven assistant invents a new recipe based on your ingredients. Not satisfied on the first try? Request refinements in real-time! Use the form above, or try our Advanced Creation tool.</p>
+      </div>
+      <img class="response" src="../static/images/feature-plate.webp" alt="">
+    </div>
+    <div class="cards">
+      <img class="response" src="../static/images/feature-planner.webp" alt="">
+      <div class="desc" id="response">
+        <h2>Creative Meal Planning in a Snap</h2>
+      <p>Meal planning is a breeze with Cooksmart AI. Say goodbye to hours spent browsing cookbooks or searching recipe blogs for ideas. Our powerful Idea Generator provides multiple suggestions based on your requirements or ingredients list. Then, it creates complete, detailed recipes for all your favorite suggestions.</p>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="desc" id="response">
+        <h2>Nutritional Analysis & Healthier Choices</h2>
+      <p>Stay informed about what you eat with Cooksmart AI's detailed nutritional analysis. Our AI provides insights into the nutritional content of each recipe, helping you make healthier choices for you and your family.</p>
+    </div>
+    <img class="response" src="../static/images/cartton-nutrients-removebg-preview.png" alt="">
+    </div>
+</section>
+
+<section id="how-works">
+    <h1>How it Works</h1>
+    <hr>
+    <div class="container">
+    <div class="works">
+      <img src="../static/images/prompt.jpg" alt="">
+      <div class="imgdes">
+        <h2>Input Your Ingredients</h2>
+        <p>Enter the ingredients you have on hand or fridge, or a recipe idea you'd like to try.</p>
+      </div>
+    </div>
+    <div class="works">
+      <img src="../static/images/select.jpg" alt="">
+      <div class="imgdes">
+        <h2>AI Recipe Generation & Refinement</h2>
+        <p>Our AI-ML analyzes your ingredients and preferences to generate unique, delicious recipes.</p>
+      </div>
+    </div>
+    <div class="works">
+      <img src="../static/images/provide.jpg" alt="">
+      <div class="imgdes">
+        <h2>Get Cooking & Nutritional Insights</h2>
+        <p>Follow the step-by-step recipe instructions to create your meal. Enjoy the satisfaction of reducing waste with personalized dishes, while our detailed nutritional analysis helps you make healthier dietary choices.  </p>
+      </div>
+    </div>
+  </div>
+  </section>
+  <section id="pricing">
+    <h2>Pricing</h2>
+    <hr>
+    <p>Coming Soon....</p>
+  </section>
+  <footer id="footer">
+    <div class="footer-content">
+        <p>&copy; 2025 Cooksmart AI. All rights reserved.</p>
+        <ul class="footer-links">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#privacy">Privacy Policy</a></li>
+            <li><a href="#terms">Terms of Service</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </div>
+</footer>
+
+</body>
+</html>
